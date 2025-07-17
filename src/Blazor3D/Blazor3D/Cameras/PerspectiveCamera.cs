@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Cameras;
+﻿namespace Blazor3D.Cameras;
 
 /// <summary>
 /// <para>Camera that uses perspective projection.
@@ -9,9 +9,7 @@
 /// <inheritdoc><see cref="Camera"/></inheritdoc>
 public sealed class PerspectiveCamera : Camera
 {
-    public PerspectiveCamera() : base("PerspectiveCamera")
-    {
-    }
+    public PerspectiveCamera() : base("PerspectiveCamera") { }
 
     /// <summary>
     /// Constructor with parameters.

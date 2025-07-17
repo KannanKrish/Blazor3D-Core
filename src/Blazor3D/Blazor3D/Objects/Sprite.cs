@@ -1,6 +1,4 @@
-﻿using HomagGroup.Blazor3D.Textures;
-
-namespace HomagGroup.Blazor3D.Objects;
+﻿namespace Blazor3D.Objects;
 
 /// <summary>
 /// <para>Class representing triangulated polygon mesh based objects. Also serves as a base for other classes.</para>
@@ -19,14 +17,14 @@ public class Sprite : Object3D
     }
 
     /// <summary>
-    /// <para>Collection of <see cref="HomagGroup.Blazor3D.Materials.Material"/> (or derived classes) materials, defining the object's appearance.</para>
+    /// <para>Collection of <see cref="Materials.Material"/> (or derived classes) materials, defining the object's appearance.</para>
     /// </summary>
-    public SpriteMaterial Material { get; set; } = new SpriteMaterial();
+    public SpriteMaterial Material { get; set; } = new();
 
     /// <summary>
     /// <para>The sprite's anchor point, and the point around which the sprite rotates. A value of (0.5,0.5)</para>
     /// <para>coresponds to the midpoint of the sprite. A value of (0,0) corresponds to the lower left corner of the sprite.</para>
     /// <para>The default is (0.5,0.5)</para>
     /// </summary>
-    public Vector2 Center { get; set; } = new Vector2(0.5, 0.5);
+    public Vector2 Center { get; set; } = new(0.5, 0.5);
 }

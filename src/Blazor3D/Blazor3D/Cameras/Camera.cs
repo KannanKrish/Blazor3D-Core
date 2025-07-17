@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Cameras;
+﻿namespace Blazor3D.Cameras;
 
 /// <summary>
 /// <para>Abstract base class for cameras.</para>
@@ -7,23 +7,21 @@
 /// <inheritdoc><see cref="Object3D"/></inheritdoc>
 public abstract class Camera : Object3D
 {
-    protected Camera(string type = "Camera") : base(type)
-    {
-    }
+    protected Camera(string type = "Camera") : base(type) { }
 
     /// <summary>
     /// Settings used for camera's animated rotations.
     /// </summary>
-    public AnimateRotationSettings AnimateRotationSettings { get; set; } = new AnimateRotationSettings();
+    public AnimateRotationSettings AnimateRotationSettings { get; set; } = new();
 
     /// <summary>
     /// The point camera looks at.
     /// </summary>
-    public Vector3 LookAt { get; set; } = new Vector3();
+    public Vector3 LookAt { get; set; } = new();
 
     /// <summary>
     /// This is used by the LookAt method, for example, to determine the orientation of the result.
     /// Default is ( 0, 1, 0 ).
     /// </summary>
-    public Vector3 Up { get; set; } = new Vector3(0, 1, 0);
+    public Vector3 Up { get; set; } = new(0, 1, 0);
 }

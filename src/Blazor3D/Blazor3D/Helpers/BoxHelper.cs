@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Helpers;
+﻿namespace Blazor3D.Helpers;
 
 /// <summary>
 /// <para>Helper object to graphically show the world-axis-aligned bounding box around an object.</para>

@@ -1,10 +1,10 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Settings;
+﻿namespace Blazor3D.Tests.Settings;
 
 [TestClass]
 public class AnimateRotationSettingsTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var settings = new AnimateRotationSettings();
 
@@ -16,7 +16,7 @@ public class AnimateRotationSettingsTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var settings = new AnimateRotationSettings(true, 1, 1, 1, 1);
 

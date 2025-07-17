@@ -1,10 +1,10 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Helpers;
+﻿namespace Blazor3D.Tests.Helpers;
 
 [TestClass]
 public class AxesHelperTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var helper = new AxesHelper();
         Assert.AreEqual("AxesHelper", helper.Type);
@@ -12,7 +12,7 @@ public class AxesHelperTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var helper = new AxesHelper(5);
         Assert.AreEqual("AxesHelper", helper.Type);

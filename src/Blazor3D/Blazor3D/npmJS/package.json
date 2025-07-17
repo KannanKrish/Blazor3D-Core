@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "three": "^0.160.0"
+    "three": "^0.178.0",
+    "three-usdz-loader": "^1.0.9"
   },
   "devDependencies": {
     "webpack": "^5.89.0",

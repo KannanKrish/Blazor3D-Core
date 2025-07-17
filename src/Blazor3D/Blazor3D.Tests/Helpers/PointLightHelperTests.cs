@@ -1,10 +1,12 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Helpers;
+﻿using Blazor3D.Lights;
+
+namespace Blazor3D.Tests.Helpers;
 
 [TestClass]
 public class PointLightHelperTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var helper = new PointLightHelper();
         Assert.AreEqual("PointLightHelper", helper.Type);
@@ -14,7 +16,7 @@ public class PointLightHelperTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var light = new PointLight()
         {

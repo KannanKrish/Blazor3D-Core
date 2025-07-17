@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Settings;
+﻿namespace Blazor3D.Settings;
 
 /// <summary>
 /// <para>Settings used for animated rotations.</para>

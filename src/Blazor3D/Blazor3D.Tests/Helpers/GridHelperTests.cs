@@ -1,10 +1,10 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Helpers;
+﻿namespace Blazor3D.Tests.Helpers;
 
 [TestClass]
 public class GridHelperTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var grid = new GridHelper();
         Assert.AreEqual("GridHelper", grid.Type);
@@ -15,7 +15,7 @@ public class GridHelperTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var grid = new GridHelper(6, 6, "red", "orange");
         Assert.AreEqual("GridHelper", grid.Type);

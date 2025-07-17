@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json.Serialization;
-
-namespace HomagGroup.Blazor3D.ComponentHelpers;
+﻿namespace Blazor3D.ComponentHelpers;
 
 internal static class SerializationHelper
 {

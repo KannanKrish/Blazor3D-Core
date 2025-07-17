@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Controls;
+﻿namespace Blazor3D.Controls;
 
 /// <summary>
 /// Orbit controls.
@@ -23,7 +23,7 @@ public sealed class OrbitControls
     /// <summary>
     /// The point where the camera is looking at. Default is (0,0,0).
     /// </summary>
-    public Vector3 TargetPosition { get; set; } = new Vector3();
+    public Vector3 TargetPosition { get; set; } = new();
 
     /// <summary>
     /// If true, then panning enabled. Otherwise, panning disabled. Default is true
@@ -31,7 +31,7 @@ public sealed class OrbitControls
     public bool EnablePan { get; set; } = true;
 
     /// <summary>
-    /// If true, than damping enabled. Otherwise, damping disabled. Default is true
+    /// If true, then damping enabled. Otherwise, damping disabled. Default is true
     /// </summary>
     public bool EnableDamping { get; set; } = false;
 

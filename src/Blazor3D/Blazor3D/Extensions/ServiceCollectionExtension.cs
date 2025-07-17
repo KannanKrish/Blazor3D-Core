@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Extensions;
+﻿namespace Blazor3D.Extensions;
 
 public static class ServiceCollectionExtension
 {
@@ -21,9 +21,5 @@ public static class ServiceCollectionExtension
         return services;
     }
 
-    private static void AddMapping(this FileExtensionContentTypeProvider provider, string fileExtension, string mimeType)
-    {
-        if (!provider.Mappings.ContainsKey(fileExtension))
-            provider.Mappings.Add(fileExtension, mimeType);
-    }
+    private static void AddMapping(this FileExtensionContentTypeProvider provider, string fileExtension, string mimeType) => provider.Mappings.TryAdd(fileExtension, mimeType);
 }

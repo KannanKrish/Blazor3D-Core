@@ -1,6 +1,6 @@
-﻿using HomagGroup.Blazor3D.Extras.Core;
+﻿using Blazor3D.Extras.Core;
 
-namespace HomagGroup.Blazor3D.Geometires;
+namespace Blazor3D.Geometires;
 
 /// <summary>
 /// Creates an one-sided polygonal geometry from one or more path shapes.
@@ -23,5 +23,5 @@ public class ShapeGeometry : BufferGeometry
     /// <summary>
     /// <see cref="Shape"/> polygonal shape.
     /// </summary>
-    public Shape Shape { get; set; } = new Shape();
+    public Shape Shape { get; set; } = new();
 }

@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Helpers;
+﻿namespace Blazor3D.Helpers;
 
 /// <summary>
 /// <para>An axis object to visualize the 3 axes in a simple way.</para>

@@ -1,7 +1,7 @@
-﻿namespace HomagGroup.Blazor3D.Viewers;
+﻿namespace Blazor3D.Viewers;
 
 /// <summary>
-/// <para>HomagGroup.Blazor3D viewer component.</para>
+/// <para>Blazor3D viewer component.</para>
 /// </summary>
 public sealed partial class Viewer : IDisposable
 {
@@ -39,13 +39,13 @@ public sealed partial class Viewer : IDisposable
     /// <para><see cref="Settings.ViewerSettings"/> parameter of the component.</para>
     /// </summary>
     [Parameter]
-    public ViewerSettings ViewerSettings { get; set; } = new ViewerSettings();
+    public ViewerSettings ViewerSettings { get; set; } = new();
 
     /// <summary>
     /// <para><see cref="Scenes.Scene"/> parameter of the component. Default is empty scene.</para>
     /// </summary>
     [Parameter]
-    public Scene Scene { get; set; } = new Scene();
+    public Scene Scene { get; set; } = new();
 
     /// <summary>
     /// <para>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</para>
@@ -63,7 +63,7 @@ public sealed partial class Viewer : IDisposable
     /// <para><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
     /// </summary>
     [Parameter]
-    public OrbitControls OrbitControls { get; set; } = new OrbitControls();
+    public OrbitControls OrbitControls { get; set; } = new();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -73,10 +73,7 @@ public sealed partial class Viewer : IDisposable
             ObjectLoadedStatic += OnObjectLoadedStatic;
             ObjectLoadedPrivate += OnObjectLoadedPrivate;
 
-            bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>(
-                    "import",
-                    "./_content/Blazor3D/js/bundle.js")
-                .AsTask();
+            bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Blazor3D/js/bundle.js").AsTask();
 
             if (UseDefaultScene && !Scene.Children.Any())
             {
@@ -88,7 +85,7 @@ public sealed partial class Viewer : IDisposable
                 Scene = Scene,
                 ViewerSettings = ViewerSettings,
                 Camera = Camera,
-                OrbitControls = OrbitControls,
+                OrbitControls = OrbitControls
             },
                 SerializationHelper.GetSerializerSettings());
 

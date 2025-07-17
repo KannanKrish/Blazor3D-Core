@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Geometires.Curves;
+﻿namespace Blazor3D.Geometires.Curves;
 
 public class SplineCurveGeometry : BufferGeometry
 {
@@ -6,7 +6,7 @@ public class SplineCurveGeometry : BufferGeometry
     {
     }
 
-    public List<Vector2> Points { get; set; } = new List<Vector2>();
+    public List<Vector2> Points { get; set; } = [];
 
     /// <summary>
     /// This value determines the amount of divisions when calculating the cumulative segment lengths of a curve via .getLengths. 

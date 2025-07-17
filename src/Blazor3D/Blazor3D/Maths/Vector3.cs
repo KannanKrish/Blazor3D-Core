@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Maths;
+﻿namespace Blazor3D.Maths;
 
 /// <summary>
 /// <para>Class representing a 3D vector. A 3D vector is an ordered triplet of numbers (labeled x, y, and z),

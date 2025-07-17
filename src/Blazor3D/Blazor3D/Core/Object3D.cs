@@ -1,7 +1,7 @@
-﻿namespace HomagGroup.Blazor3D.Core;
+﻿namespace Blazor3D.Core;
 
 /// <summary>
-/// <para>It's a base abstract class for most objects in <strong>HomagGroup.Blazor3D</strong>. 
+/// <para>It's a base abstract class for most objects in <strong>Blazor3D</strong>. 
 /// It provides functionality for manipulating objects in 3D space.</para>
 ///<para>Wrapper for three.js <a target="_blank" href="https://threejs.org/docs/index.html#api/en/core/Object3D">Object3D</a></para>
 /// </summary>
@@ -15,17 +15,17 @@ public abstract class Object3D
     /// <summary>
     /// Represents the object's local <see cref="Vector3"/> position. Default is (0, 0, 0).
     /// </summary>
-    public Vector3 Position { get; set; } = new Vector3();
+    public Vector3 Position { get; set; } = new();
 
     /// <summary>
     /// Object's local <see cref="Euler"/> rotation, in radians.
     /// </summary>
-    public Euler Rotation { get; set; } = new Euler();
+    public Euler Rotation { get; set; } = new();
 
     /// <summary>
     /// Represents the object's local <see cref="Vector3"/> scale. Default is (1, 1, 1).
     /// </summary>
-    public Vector3 Scale { get; set; } = new Vector3(1, 1, 1);
+    public Vector3 Scale { get; set; } = new(1, 1, 1);
 
     public string Type { get; } = "Object3D";
 
@@ -42,7 +42,7 @@ public abstract class Object3D
     /// <summary>
     /// Collection of <see cref="Object3D"/> child objects.
     /// </summary>
-    public List<Object3D> Children { get; set; } = new List<Object3D>();
+    public List<Object3D> Children { get; set; } = [];
 
     /// <summary>
     /// Settings to create movement animations on the object

@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Cameras;
+﻿namespace Blazor3D.Cameras;
 
 /// <summary>
 /// <para>Camera that uses <a target="_blank" href="https://en.wikipedia.org/wiki/Orthographic_projection">orthographic projection</a>.</para>
@@ -7,9 +7,7 @@
 /// </summary>
 public sealed class OrthographicCamera : Camera
 {
-    public OrthographicCamera() : base("OrthographicCamera")
-    {
-    }
+    public OrthographicCamera() : base("OrthographicCamera") { }
 
     /// <summary>
     /// Constructor with parameters.
@@ -21,8 +19,7 @@ public sealed class OrthographicCamera : Camera
     /// <param name="near">Camera frustum near plane distance. Default is 0.1.</param>
     /// <param name="far">Camera frustum far plane distance. Default is 1000.</param>
     /// <param name="zoom">Zoom factor of the camera. Default is 1.</param>
-    public OrthographicCamera(double left = -1, double right = 1, double top = 1, double bottom = -1, double near = 0.1,
-        double far = 2000, double zoom = 1) : this()
+    public OrthographicCamera(double left = -1, double right = 1, double top = 1, double bottom = -1, double near = 0.1, double far = 2000, double zoom = 1) : this()
     {
         Left = left;
         Right = right;

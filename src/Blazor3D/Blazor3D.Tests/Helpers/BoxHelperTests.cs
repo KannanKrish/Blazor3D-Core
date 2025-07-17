@@ -1,10 +1,12 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Helpers;
+﻿using Blazor3D.Objects;
+
+namespace Blazor3D.Tests.Helpers;
 
 [TestClass]
 public class BoxHelperTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var helper = new BoxHelper();
         Assert.AreEqual("BoxHelper", helper.Type);
@@ -13,7 +15,7 @@ public class BoxHelperTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var mesh = new Mesh();
         var helper = new BoxHelper(mesh, "red");

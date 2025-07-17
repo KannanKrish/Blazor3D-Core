@@ -1,10 +1,10 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Cameras;
+﻿namespace Blazor3D.Tests.Cameras;
 
 [TestClass]
 public class PerspectiveCameraTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var camera = new PerspectiveCamera();
         Assert.AreEqual("PerspectiveCamera", camera.Type);
@@ -16,7 +16,7 @@ public class PerspectiveCameraTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithPredefinedValues()
+    public void ConstructorWithParamsShouldCreateWithPredefinedValues()
     {
         var camera = new PerspectiveCamera(fov: 10, near: 0.2, far: 100);
         Assert.AreEqual("PerspectiveCamera", camera.Type);

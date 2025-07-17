@@ -1,10 +1,10 @@
-namespace HomagGroup.Blazor3D.Tests.Cameras;
+namespace Blazor3D.Tests.Cameras;
 
 [TestClass]
 public class OrthographicCameraTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var camera = new OrthographicCamera();
         Assert.AreEqual("OrthographicCamera", camera.Type);
@@ -21,7 +21,7 @@ public class OrthographicCameraTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var camera = new OrthographicCamera(left: -2, right: 2, top: 2, bottom: -2, near: 0, far: 100, zoom: 0.5);
         Assert.AreEqual("OrthographicCamera", camera.Type);

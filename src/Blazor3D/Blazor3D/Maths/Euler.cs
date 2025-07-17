@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Maths;
+﻿namespace Blazor3D.Maths;
 
 /// <summary>
 /// <para>Representing Euler Angles.

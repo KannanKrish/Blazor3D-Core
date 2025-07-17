@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Lights;
+﻿namespace Blazor3D.Lights;
 
 /// <summary>
 /// <para>Abstract base class for lights.</para>

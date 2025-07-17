@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Geometires;
+﻿namespace Blazor3D.Geometires;
 
 /// <summary>
 /// <para>Class for a capsule with given radus and height. It is constructed using a lathe.</para>

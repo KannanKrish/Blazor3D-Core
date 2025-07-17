@@ -1,3 +1,5 @@
+using Blazor3D.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorComponents().AddInteractiveWebAssemblyComponents();

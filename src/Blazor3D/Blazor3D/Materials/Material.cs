@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Materials;
+﻿namespace Blazor3D.Materials;
 
 /// <summary>
 /// <para>Abstract base class for materials.</para>

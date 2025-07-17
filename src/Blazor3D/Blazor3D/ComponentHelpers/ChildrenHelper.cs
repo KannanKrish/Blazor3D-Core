@@ -1,10 +1,11 @@
-﻿namespace HomagGroup.Blazor3D.ComponentHelpers;
+﻿namespace Blazor3D.ComponentHelpers;
 
 internal static class ChildrenHelper
 {
     internal static void RemoveObjectByUuid(Guid uuid, List<Object3D> children)
     {
         Object3D? result = null;
+
         foreach (var child in children)
         {
             if (child.Uuid == uuid)
@@ -17,8 +18,6 @@ internal static class ChildrenHelper
             {
                 RemoveObjectByUuid(uuid, child.Children);
             }
-
-            ;
         }
 
         if (result != null)
@@ -28,12 +27,10 @@ internal static class ChildrenHelper
     internal static Object3D? GetObjectByUuid(Guid uuid, List<Object3D> children)
     {
         Object3D? result = null;
+
         foreach (var child in children)
         {
-            if (child.Uuid == uuid)
-            {
-                return child;
-            }
+            if (child.Uuid == uuid) return child;
 
             if (child.Children.Count > 0)
             {
@@ -43,8 +40,6 @@ internal static class ChildrenHelper
                     return result;
                 }
             }
-
-            ;
         }
 
         return result;

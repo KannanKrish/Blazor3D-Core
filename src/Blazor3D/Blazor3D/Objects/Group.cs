@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Objects;
+﻿namespace Blazor3D.Objects;
 
 /// <summary>
 /// <para>This is almost identical to an <see cref="Object3D"/>. Its purpose is to make working with groups of objects syntactically clearer.</para>

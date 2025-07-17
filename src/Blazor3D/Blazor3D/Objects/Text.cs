@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Objects;
+﻿namespace Blazor3D.Objects;
 
 public class Text : Mesh
 {

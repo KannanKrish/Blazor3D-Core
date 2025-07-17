@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HomagGroup.Blazor3D.Settings;
+﻿namespace Blazor3D.Settings;
 
 public class SpriteImportSettings
 {
@@ -32,15 +26,15 @@ public class SpriteImportSettings
     /// <summary>
     /// A Vector3 representing the object's local position. Default is (0,0,0).
     /// </summary>
-    public Vector3 Position { get; set; } = new Vector3(0, 0, 0);
+    public Vector3 Position { get; set; } = new(0, 0, 0);
 
     /// <summary>
     /// Ojbect's local rotation
     /// </summary>
-    public Euler Rotation { get; set; } = new Euler();
+    public Euler Rotation { get; set; } = new();
 
     /// <summary>
     /// The object's local scale. Default is a Vector3(1, 1, 1)
     /// </summary>
-    public Vector3 Scale { get; set; } = new Vector3(1, 1, 1);
+    public Vector3 Scale { get; set; } = new(1, 1, 1);
 }

@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Extras.Core;
+﻿namespace Blazor3D.Extras.Core;
 
 /// <summary>
 /// Defines an arbitrary 2d shape plane using paths with optional holes).
@@ -14,7 +14,7 @@ public class Shape
     /// <summary>
     /// Array of <see cref="Vector2"/> representing the shape verticies.
     /// </summary>
-    public List<Vector2> Points { get; set; } = new List<Vector2>();
+    public List<Vector2> Points { get; set; } = [];
 
     /// <summary>
     /// Moves the current point to the specified <see cref="Vector2"/> point. Can be used for the first element of the Points collection.

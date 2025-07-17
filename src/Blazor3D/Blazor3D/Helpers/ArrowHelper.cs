@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Helpers;
+﻿namespace Blazor3D.Helpers;
 
 /// <summary>
 /// <para>An 3D arrow object for visualizing directions.</para>
@@ -40,12 +40,12 @@ public sealed class ArrowHelper : Object3D
     /// <summary>
     ///  Direction from origin. Must be a unit vector. It's normilized before applying. Default is (0, 0, 1).
     /// </summary>
-    public Vector3 Dir { get; set; } = new Vector3(0, 0, 1);
+    public Vector3 Dir { get; set; } = new(0, 0, 1);
 
     /// <summary>
     /// Point at which the arrow starts. Default is (0, 0, 0).
     /// </summary>
-    public Vector3 Origin { get; set; } = new Vector3(0, 0, 0);
+    public Vector3 Origin { get; set; } = new(0, 0, 0);
 
     /// <summary>
     /// Length of the arrow. Default is 1.

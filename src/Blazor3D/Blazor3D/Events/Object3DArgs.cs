@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Events;
+﻿namespace Blazor3D.Events;
 
 internal class Object3DStaticArgs
 {

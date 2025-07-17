@@ -1,10 +1,10 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Helpers;
+﻿namespace Blazor3D.Tests.Helpers;
 
 [TestClass]
 public class PlaneHelperTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var plane = new PlaneHelper();
         Assert.AreEqual("PlaneHelper", plane.Type);
@@ -19,7 +19,7 @@ public class PlaneHelperTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var plane = new PlaneHelper(new Plane(new Vector3(1, 1, 1), 1));
         Assert.AreEqual("PlaneHelper", plane.Type);

@@ -1,10 +1,10 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Helpers;
+﻿namespace Blazor3D.Tests.Helpers;
 
 [TestClass]
 public class ArrowHelperTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var arrow = new ArrowHelper();
         Assert.AreEqual("ArrowHelper", arrow.Type);
@@ -21,7 +21,7 @@ public class ArrowHelperTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var arrow = new ArrowHelper(
             dir: new Vector3(3, 3, 3),

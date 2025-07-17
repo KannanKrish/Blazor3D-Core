@@ -1,10 +1,10 @@
-﻿namespace HomagGroup.Blazor3D.Tests.Helpers;
+﻿namespace Blazor3D.Tests.Helpers;
 
 [TestClass]
 public class PolarGridHelperTests
 {
     [TestMethod]
-    public void DefaultConstuctorShouldCreateWithPredefinedValues()
+    public void DefaultConstructorShouldCreateWithPredefinedValues()
     {
         var grid = new PolarGridHelper();
         Assert.AreEqual("PolarGridHelper", grid.Type);
@@ -17,7 +17,7 @@ public class PolarGridHelperTests
     }
 
     [TestMethod]
-    public void ConstuctorWithParamsShouldCreateWithSpecifiedValues()
+    public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
         var grid = new PolarGridHelper(2, 2, 6, 32, "red", "orange");
         Assert.AreEqual("PolarGridHelper", grid.Type);

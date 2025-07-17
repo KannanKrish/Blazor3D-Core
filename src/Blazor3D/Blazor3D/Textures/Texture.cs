@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Textures;
+﻿namespace Blazor3D.Textures;
 
 public class Texture
 {
@@ -48,18 +48,18 @@ public class Texture
     /// <para>If repeat is set greater than 1 in either direction, the corresponding Wrap parameter should also be set to <see cref="WrappingType.RepeatWrapping"/> or <see cref="WrappingType.MirroredRepeatWrapping"/> to achieve the desired tiling effect.</para>
     /// <para>Setting different repeat values for textures is restricted in the same way like Offset.</para>
     /// </summary>
-    public Vector2 Repeat { get; set; } = new Vector2(1, 1);
+    public Vector2 Repeat { get; set; } = new(1, 1);
 
     /// <summary>
     /// <para>How much a single repetition of the texture is offset from the beginning, in each direction U and V. Typical range is 0.0 to 1.0.</para>
     /// <para>For more details see <a target="_blank" href="https://threejs.org/docs/index.html?q=texture#api/en/textures/Texture.offset">here</a> </para>
     /// </summary>
-    public Vector2 Offset { get; set; } = new Vector2(0, 0);
+    public Vector2 Offset { get; set; } = new(0, 0);
 
     /// <summary>
     /// The point around which rotation occurs. A value of (0.5, 0.5) corresponds to the center of the texture. Default is (0, 0), the lower left.
     /// </summary>
-    public Vector2 Center { get; set; } = new Vector2(0, 0);
+    public Vector2 Center { get; set; } = new(0, 0);
 
     /// <summary>
     /// How much the texture is rotated around the center point, in radians. Positive values are counter-clockwise. Default is 0.

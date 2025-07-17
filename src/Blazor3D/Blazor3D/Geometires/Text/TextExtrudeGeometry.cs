@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Geometires.Text;
+﻿namespace Blazor3D.Geometires.Text;
 
 /// <summary>
 /// Represents geometry to build extruded text

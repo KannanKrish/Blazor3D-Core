@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Helpers;
+﻿namespace Blazor3D.Helpers;
 
 /// <summary>
 /// <para>This displays a helper object consisting of a spherical <see cref="Mesh"/> for visualizing a <see cref="PointLight"/>.</para>
@@ -27,7 +27,7 @@ public sealed class PointLightHelper : Object3D
     /// <summary>
     ///  The light to be visualized. Must be already added to the scene.
     /// </summary>
-    public PointLight Light { get; set; } = new PointLight();
+    public PointLight Light { get; set; } = new();
 
     /// <summary>
     /// The size of the sphere helper. Default is 1.

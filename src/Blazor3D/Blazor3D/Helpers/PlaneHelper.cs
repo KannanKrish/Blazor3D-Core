@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Helpers;
+﻿namespace Blazor3D.Helpers;
 
 /// <summary>
 /// Helper object to visualize a <see cref="Plane"/>.
@@ -28,7 +28,7 @@ public sealed class PlaneHelper : Object3D
     /// <summary>
     /// The <see cref="Plane"/> to visualize.
     /// </summary>
-    public Plane Plane { get; set; } = new Plane();
+    public Plane Plane { get; set; } = new();
 
     /// <summary>
     /// Side length of plane helper. Default is 1.

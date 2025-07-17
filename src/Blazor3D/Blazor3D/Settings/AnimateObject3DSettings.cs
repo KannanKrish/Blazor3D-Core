@@ -1,4 +1,4 @@
-namespace HomagGroup.Blazor3D.Settings;
+namespace Blazor3D.Settings;
 
 /// <summary>
 /// <para>Settings used for animations on Object3D/>.</para>
@@ -13,7 +13,7 @@ public class AnimateObject3DSettings
     /// <summary>
     /// a list of <see cref="Vector3"/> points representing the path for object movement.
     /// </summary>
-    public List<Vector3> Points { get; set; } = new List<Vector3>();
+    public List<Vector3> Points { get; set; } = [];
 
     /// <summary>
     /// The animation speed

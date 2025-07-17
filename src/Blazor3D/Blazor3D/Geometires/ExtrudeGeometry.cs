@@ -1,6 +1,6 @@
-﻿using HomagGroup.Blazor3D.Extras.Core;
+﻿using Blazor3D.Extras.Core;
 
-namespace HomagGroup.Blazor3D.Geometires;
+namespace Blazor3D.Geometires;
 
 /// <summary>
 /// Creates extruded geometry from a path shape.
@@ -25,10 +25,10 @@ public class ExtrudeGeometry : BufferGeometry
     /// <summary>
     /// <see cref="Shape"/> polygonal shape.
     /// </summary>
-    public Shape Shape { get; set; } = new Shape();
+    public Shape Shape { get; set; } = new();
 
     /// <summary>
     /// <see cref="ExtrudeGeometryOptions"/> options used for extrusion.
     /// </summary>
-    public ExtrudeGeometryOptions ExtrudeOptions { get; set; } = new ExtrudeGeometryOptions();
+    public ExtrudeGeometryOptions ExtrudeOptions { get; set; } = new();
 }

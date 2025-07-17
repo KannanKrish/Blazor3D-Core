@@ -1,7 +1,7 @@
-﻿namespace HomagGroup.Blazor3D.Settings;
+﻿namespace Blazor3D.Settings;
 
 /// <summary>
-/// Class for HomagGroup.Blazor3D Viewer WebGLRenderer settings.
+/// Class for Blazor3D Viewer WebGLRenderer settings.
 /// </summary>
 public class WebGLRendererSettings
 {

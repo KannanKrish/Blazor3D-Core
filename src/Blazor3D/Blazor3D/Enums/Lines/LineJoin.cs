@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Enums.Lines;
+﻿namespace Blazor3D.Enums.Lines;
 
 public enum LineJoin
 {

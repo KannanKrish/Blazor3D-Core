@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Geometires;
+﻿namespace Blazor3D.Geometires;
 
 /// <summary>
 /// A class for generating plane geometries.

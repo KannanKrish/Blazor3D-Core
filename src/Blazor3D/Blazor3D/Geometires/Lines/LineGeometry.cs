@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Geometires.Lines;
+﻿namespace Blazor3D.Geometires.Lines;
 
 public class LineGeometry : BufferGeometry
 {
@@ -6,5 +6,5 @@ public class LineGeometry : BufferGeometry
     {
     }
 
-    public List<Vector3> Points { get; set; } = new List<Vector3>();
+    public List<Vector3> Points { get; set; } = [];
 }

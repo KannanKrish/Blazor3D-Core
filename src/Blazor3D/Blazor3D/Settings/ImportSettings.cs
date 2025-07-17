@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Settings;
+﻿namespace Blazor3D.Settings;
 
 /// <summary>
 /// Settings that will be applied during 3D model file importing.

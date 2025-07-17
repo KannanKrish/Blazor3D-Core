@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Geometires;
+﻿namespace Blazor3D.Geometires;
 
 /// <summary>
 /// <para></para>A class for generating cone geometries.

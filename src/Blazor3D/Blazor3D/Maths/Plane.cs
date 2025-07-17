@@ -1,4 +1,4 @@
-﻿namespace HomagGroup.Blazor3D.Maths;
+﻿namespace Blazor3D.Maths;
 
 /// <summary>
 /// <para>A two dimensional surface that extends infinitely in 3d space, represented in Hessian normal form by a unit length normal vector and a constant.</para>
@@ -24,7 +24,7 @@ public sealed class Plane
     /// <summary>
     /// A unit length Vector3 defining the normal of the plane. Default is (1, 0, 0).
     /// </summary>
-    public Vector3 Normal { get; set; } = new Vector3(1, 0, 0);
+    public Vector3 Normal { get; set; } = new(1, 0, 0);
 
     /// <summary>
     /// The signed distance from the origin to the plane. Default is 0.

@@ -1,6 +1,6 @@
-﻿using HomagGroup.Blazor3D.Textures;
+﻿using Blazor3D.Textures;
 
-namespace HomagGroup.Blazor3D.Materials;
+namespace Blazor3D.Materials;
 
 /// <summary>
 /// <para>A standard physically based Material, using Metallic-Roughness workflow.</para>
@@ -37,5 +37,5 @@ public sealed class MeshStandardMaterial : Material
     /// <summary>
     /// The color map. May optionally include an alpha channel, typically combined with Transparent (todo) or AlphaTest(todo). Default is null. The texture map color is modulated by the diffuse Color.
     /// </summary>
-    public Texture Map { get; set; } = new Texture();
+    public Texture Map { get; set; } = new();
 }
