@@ -227,7 +227,7 @@ public sealed partial class Viewer : IDisposable
     /// <param name="fileUrl">URL of the 3D model file.</param>
     /// <param name="material"><see cref="MeshStandardMaterial"/>Material that will be applied to all loaded meshes.</param>
     /// <param name="textureUrl">URL of the texture file.</param>
-    /// <param name="Uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is genrated.</param>
+    /// <param name="Uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is generated.</param>
     /// <returns>Guid of the loaded item</returns>
     public async Task<Guid> Import3DModelFileAsync(string fileUrl, MeshStandardMaterial? material = null,
         string? textureUrl = null, Guid? Uuid = null)
@@ -284,17 +284,17 @@ public sealed partial class Viewer : IDisposable
 
     private async Task OnModuleLoaded()
     {
-        LoadedModuleEventHandler handler = JsModuleLoaded;
+        var handler = JsModuleLoaded;
 
         if (handler == null)
         {
             return;
         }
 
-        Delegate[] invocationList = handler.GetInvocationList();
-        Task[] handlerTasks = new Task[invocationList.Length];
+        var invocationList = handler.GetInvocationList();
+        var handlerTasks = new Task[invocationList.Length];
 
-        for (int i = 0; i < invocationList.Length; i++)
+        for (var i = 0; i < invocationList.Length; i++)
         {
             handlerTasks[i] = ((LoadedModuleEventHandler)invocationList[i])();
         }
@@ -343,7 +343,7 @@ public sealed partial class Viewer : IDisposable
             return result;
         }
 
-        foreach (JToken child in children)
+        foreach (var child in children)
         {
             var c = child as JObject;
             if (c == null)
