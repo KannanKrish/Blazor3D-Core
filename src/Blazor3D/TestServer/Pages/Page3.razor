@@ -30,7 +30,7 @@
     private Guid objGuid;
     private Guid lastSelectedGuid;
 
-    private ViewerSettings settings = new ViewerSettings()
+    private ViewerSettings settings = new ViewerSettings
     {
         ContainerId = "rsid",
         CanSelect = true,
@@ -72,7 +72,7 @@
     private void AddLights()
     {
         scene.Add(new AmbientLight());
-        var plight = new PointLight()
+        var plight = new PointLight
         {
             //Color = "red",
             Decay = 2,
@@ -89,7 +89,7 @@
 
     private async Task OnCreateCubeButtonClick()
     {
-        var texture = new Texture()
+        var texture = new Texture
         {
             TextureUrl = "uv_grid_opengl.jpg",
             WrapS = WrappingType.MirroredRepeatWrapping,
@@ -102,7 +102,7 @@
         {
             Geometry = new BoxGeometry(),
             Position = new Vector3(xCoord, yCoord, zCoord),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "white",
                 Map = texture

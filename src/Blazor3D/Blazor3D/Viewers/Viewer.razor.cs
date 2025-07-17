@@ -57,7 +57,7 @@ public sealed partial class Viewer : IDisposable
     /// <para><see cref="PerspectiveCamera"/> used to display the scene.</para>
     /// </summary>
     [Parameter]
-    public Camera Camera { get; set; } = new PerspectiveCamera() { Position = new Vector3(3, 3, 3) };
+    public Camera Camera { get; set; } = new PerspectiveCamera { Position = new Vector3(3, 3, 3) };
 
     /// <summary>
     /// <para><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
@@ -153,7 +153,7 @@ public sealed partial class Viewer : IDisposable
     {
         var guid = string.IsNullOrWhiteSpace(uuid) ? Guid.Empty : Guid.Parse(uuid);
         var result = containerId + uuid;
-        ObjectSelectedStatic?.Invoke(new Object3DStaticArgs()
+        ObjectSelectedStatic?.Invoke(new Object3DStaticArgs
         {
             ContainerId = containerId,
             UUID = guid,
@@ -165,7 +165,7 @@ public sealed partial class Viewer : IDisposable
     public static Task ReceiveLoadedObjectUUID(string containerId, string uuid)
     {
         var result = containerId + uuid;
-        ObjectLoadedStatic?.Invoke(new Object3DStaticArgs()
+        ObjectLoadedStatic?.Invoke(new Object3DStaticArgs
         {
             ContainerId = containerId,
             UUID = new Guid(uuid),
@@ -234,7 +234,7 @@ public sealed partial class Viewer : IDisposable
     {
         var fileExtension = fileUrl.Substring(fileUrl.LastIndexOf('.') + 1);
 
-        var settings = new ImportSettings()
+        var settings = new ImportSettings
         {
             FileURL = fileUrl,
             Format = fileExtension switch
@@ -306,7 +306,7 @@ public sealed partial class Viewer : IDisposable
     private void AddDefaultScene()
     {
         Scene.Add(new AmbientLight());
-        Scene.Add(new PointLight()
+        Scene.Add(new PointLight
         {
             Position = new Vector3
             {
@@ -322,7 +322,7 @@ public sealed partial class Viewer : IDisposable
     {
         if (ViewerSettings.ContainerId == e.ContainerId)
         {
-            ObjectSelected?.Invoke(new Object3DArgs() { UUID = e.UUID });
+            ObjectSelected?.Invoke(new Object3DArgs { UUID = e.UUID });
         }
     }
 
@@ -330,7 +330,7 @@ public sealed partial class Viewer : IDisposable
     {
         if (ViewerSettings.ContainerId == e.ContainerId)
         {
-            ObjectLoadedPrivate?.Invoke(new Object3DArgs() { UUID = e.UUID });
+            ObjectLoadedPrivate?.Invoke(new Object3DArgs { UUID = e.UUID });
         }
     }
 
@@ -356,7 +356,7 @@ public sealed partial class Viewer : IDisposable
             var uuid = c.Property("uuid")?.Value.ToString() ?? string.Empty;
             if (type == "Mesh")
             {
-                var mesh = new Mesh()
+                var mesh = new Mesh
                 {
                     Name = name,
                     Uuid = Guid.Parse(uuid)
@@ -398,7 +398,7 @@ public sealed partial class Viewer : IDisposable
             group.Children.AddRange(childrenResult);
 
             Scene.Children.Add(group);
-            ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
+            ObjectLoaded?.Invoke(new Object3DArgs { UUID = e.UUID });
         }
 
         if (json.Contains("\"type\":\"Mesh\""))
@@ -407,7 +407,7 @@ public sealed partial class Viewer : IDisposable
             if (mesh != null)
             {
                 Scene.Children.Add(mesh);
-                ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
+                ObjectLoaded?.Invoke(new Object3DArgs { UUID = e.UUID });
             }
         }
 
@@ -417,7 +417,7 @@ public sealed partial class Viewer : IDisposable
             if (sprite != null)
             {
                 Scene.Children.Add(sprite);
-                ObjectLoaded?.Invoke(new Object3DArgs() { UUID = e.UUID });
+                ObjectLoaded?.Invoke(new Object3DArgs { UUID = e.UUID });
             }
         }
     }

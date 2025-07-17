@@ -4,7 +4,7 @@ internal static class SerializationHelper
 {
     internal static JsonSerializerSettings GetSerializerSettings()
     {
-        return new JsonSerializerSettings()
+        return new JsonSerializerSettings
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,

@@ -25,8 +25,8 @@
     private Viewer View3D1 = null!;
     private Guid objGuid;
 
-    private ViewerSettings settings = new ViewerSettings()
-        {
+    private ViewerSettings settings = new ViewerSettings
+    {
             ContainerId = "rsid",
         };
 
@@ -35,8 +35,8 @@
     protected override Task OnInitializedAsync()
     {
         scene.Add(new AmbientLight());
-        scene.Add(new PointLight()
-            {
+        scene.Add(new PointLight
+        {
                 Decay = 2,
                 Position = new Vector3
                 {

@@ -12,19 +12,19 @@
     private Viewer View3D1 = null!;
     private Guid objGuid;
 
-    private ViewerSettings settings = new ViewerSettings()
+    private ViewerSettings settings = new ViewerSettings
     {
         ContainerId = "rsid",
         CanSelect = true,
         CanSelectHelpers = false,
-        WebGLRendererSettings = new WebGLRendererSettings()
+        WebGLRendererSettings = new WebGLRendererSettings
         {
             PremultipliedAlpha = false,
             Alpha = true,
         }
     };
 
-    private Scene scene = new Scene()
+    private Scene scene = new Scene
     {
         BackGroundColor = string.Empty,
     };
@@ -85,7 +85,7 @@
     private void AddLights()
     {
         scene.Add(new AmbientLight());
-        var plight = new PointLight()
+        var plight = new PointLight
         {
             //Color = "red",
             Decay = 2,
@@ -111,10 +111,10 @@
         //rotation.Y = 0.78;
         rotation.X = 0.78;
         rotation.Z = 0.78;
-        var sprite = new Sprite()
+        var sprite = new Sprite
         {
             Position = new Vector3(0, -2, 0),
-            Material = new SpriteMaterial()
+            Material = new SpriteMaterial
             {
                 Color = "magenta",
                 Rotation = Math.PI / 4.0,

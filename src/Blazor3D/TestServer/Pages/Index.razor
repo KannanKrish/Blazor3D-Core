@@ -24,7 +24,7 @@
     private Viewer View3D1 = null!;
     private Guid objGuid;
 
-    private ViewerSettings settings = new ViewerSettings()
+    private ViewerSettings settings = new ViewerSettings
     {
         ContainerId = "rsid",
         CanSelect = true,
@@ -48,7 +48,7 @@
     private Guid loadedObjectGuid = Guid.NewGuid();
     private Guid? selectObjectGuid = null;
 
-    private Camera camera = new OrthographicCamera()
+    private Camera camera = new OrthographicCamera
     {
         Left = -5,
         Right = 5,
@@ -102,7 +102,7 @@
     private void AddLights()
     {
         scene.Add(new AmbientLight());
-        var plight = new PointLight()
+        var plight = new PointLight
         {
             //Color = "red",
             Decay = 2,
@@ -140,7 +140,7 @@
         {
             Geometry = new CapsuleGeometry(radius: 1, length: 2),
             Position = new Vector3(-3, 0, -3),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "blue"
             },
@@ -155,7 +155,7 @@
         {
             Geometry = new ConeGeometry(radius: 1.3f, height: 2, radialSegments: 16),
             Position = new Vector3(3, 0, -3),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "green",
                 FlatShading = true,
@@ -168,7 +168,7 @@
         {
             Geometry = new CylinderGeometry(radiusTop: 0.5f, height: 2, radialSegments: 16),
             Position = new Vector3(0, 0, -3),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "red",
                 Wireframe = true,
@@ -178,7 +178,7 @@
         {
             Geometry = new DodecahedronGeometry(radius: 1.5f),
             Position = new Vector3(-5, 0, -5),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "darkviolet"
             }
@@ -187,7 +187,7 @@
         {
             Geometry = new IcosahedronGeometry(radius: 1.5f),
             Position = new Vector3(5, 0, -5),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "violet"
             }
@@ -196,7 +196,7 @@
         {
             Geometry = new OctahedronGeometry(radius: 1.5f),
             Position = new Vector3(0, 0, -5),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "pink"
             }
@@ -216,7 +216,7 @@
         scene.Add(new Mesh
         {
             Geometry = new SphereGeometry(radius: 1.5f),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "darkgreen"
             },
@@ -226,7 +226,7 @@
         {
             Geometry = new TetrahedronGeometry(radius: 1.5f),
             Position = new Vector3(-3, 0, -8),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "lightblue"
             }
@@ -236,7 +236,7 @@
         {
             Geometry = new TorusGeometry(tube: 0.8f, radialSegments: 12, tubularSegments: 12),
             Position = new Vector3(3, 0, -8),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "lightgreen"
             }
@@ -246,7 +246,7 @@
         {
             Geometry = new TorusKnotGeometry(tube: 0.1f),
             Position = new Vector3(7, 0, -8),
-            Material = new MeshStandardMaterial()
+            Material = new MeshStandardMaterial
             {
                 Color = "magenta"
             }
@@ -341,7 +341,7 @@
     {
         if (toggler == false)
         {
-            await View3D1.UpdateCamera(new OrthographicCamera()
+            await View3D1.UpdateCamera(new OrthographicCamera
             {
                 Left = -5,
                 Right = 5,

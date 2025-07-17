@@ -18,7 +18,7 @@ public class PointLightHelperTests
     [TestMethod]
     public void ConstructorWithParamsShouldCreateWithSpecifiedValues()
     {
-        var light = new PointLight()
+        var light = new PointLight
         {
             Color = "red"
         };
