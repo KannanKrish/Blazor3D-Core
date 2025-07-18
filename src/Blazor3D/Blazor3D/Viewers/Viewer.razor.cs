@@ -17,7 +17,6 @@ public sealed partial class Viewer : IDisposable
 
     private event LoadedObjectEventHandler ObjectLoadedPrivate = null!;
 
-
     /// <summary>
     /// Raises when user selects object by mouse clicking inside viewer area.
     /// </summary>
@@ -28,42 +27,35 @@ public sealed partial class Viewer : IDisposable
     /// </summary>
     public event LoadedObjectEventHandler ObjectLoaded = null!;
 
-
     /// <summary>
     /// Raises after JavaScript module is completely loaded.
     /// </summary>
     public event LoadedModuleEventHandler JsModuleLoaded = null!;
 
-
     /// <summary>
     /// <para><see cref="Settings.ViewerSettings"/> parameter of the component.</para>
     /// </summary>
-    [Parameter]
-    public ViewerSettings ViewerSettings { get; set; } = new();
+    [Parameter] public ViewerSettings ViewerSettings { get; set; } = new();
 
     /// <summary>
     /// <para><see cref="Scenes.Scene"/> parameter of the component. Default is empty scene.</para>
     /// </summary>
-    [Parameter]
-    public Scene Scene { get; set; } = new();
+    [Parameter] public Scene Scene { get; set; } = new();
 
     /// <summary>
     /// <para>If true and there is no children objects in the scene, then adds the default lights and box mesh. Default value is false.</para>
     /// </summary>
-    [Parameter]
-    public bool UseDefaultScene { get; set; } = false;
+    [Parameter] public bool UseDefaultScene { get; set; } = false;
 
     /// <summary>
     /// <para><see cref="PerspectiveCamera"/> used to display the scene.</para>
     /// </summary>
-    [Parameter]
-    public Camera Camera { get; set; } = new PerspectiveCamera { Position = new Vector3(3, 3, 3) };
+    [Parameter] public Camera Camera { get; set; } = new PerspectiveCamera { Position = new Vector3(3, 3, 3) };
 
     /// <summary>
     /// <para><see cref="Controls.OrbitControls"/> used to rotate, pan and scale the view.</para>
     /// </summary>
-    [Parameter]
-    public OrbitControls OrbitControls { get; set; } = new();
+    [Parameter] public OrbitControls OrbitControls { get; set; } = new();
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -75,21 +67,12 @@ public sealed partial class Viewer : IDisposable
 
             bundleModule = await JSRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Blazor3D/js/bundle.js").AsTask();
 
-            if (UseDefaultScene && !Scene.Children.Any())
-            {
-                AddDefaultScene();
-            }
+            if (UseDefaultScene && !Scene.Children.Any()) AddDefaultScene();
 
-            var json = JsonConvert.SerializeObject(new
-            {
-                Scene = Scene,
-                ViewerSettings = ViewerSettings,
-                Camera = Camera,
-                OrbitControls = OrbitControls
-            },
-                SerializationHelper.GetSerializerSettings());
+            var json = JsonConvert.SerializeObject(new { Scene, ViewerSettings, Camera, OrbitControls }, SerializationHelper.GetSerializerSettings());
 
             await bundleModule.InvokeVoidAsync("loadViewer", json);
+
             await OnModuleLoaded();
         }
     }
@@ -101,6 +84,7 @@ public sealed partial class Viewer : IDisposable
     public async Task UpdateScene()
     {
         var json = JsonConvert.SerializeObject(Scene, SerializationHelper.GetSerializerSettings());
+
         await bundleModule.InvokeVoidAsync("updateScene", json);
     }
 
@@ -110,11 +94,7 @@ public sealed partial class Viewer : IDisposable
     /// <param name="position">New <see cref="Vector3"/> position.</param>
     /// <param name="lookAt">New <see cref="Vector3"/> camera target point coordinates.</param>
     /// <returns>Task</returns>
-    public async Task SetCameraPositionAsync(Vector3 position, Vector3 lookAt = null!)
-    {
-        await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
-    }
-
+    public async Task SetCameraPositionAsync(Vector3 position, Vector3 lookAt = null!) => await bundleModule.InvokeVoidAsync("setCameraPosition", position, lookAt);
 
     /// <summary>
     /// Apply updated camera settings to viewer.
@@ -123,7 +103,9 @@ public sealed partial class Viewer : IDisposable
     public async Task UpdateCamera(Camera camera)
     {
         Camera = camera;
+
         var json = JsonConvert.SerializeObject(Camera, SerializationHelper.GetSerializerSettings());
+
         await bundleModule.InvokeVoidAsync("updateCamera", json);
     }
 
@@ -131,10 +113,7 @@ public sealed partial class Viewer : IDisposable
     /// Prints information about current camera and orbit controls into browser console.
     /// </summary>
     /// <returns>Task</returns>
-    public async Task ShowCurrentCameraInfo()
-    {
-        await bundleModule.InvokeVoidAsync("showCurrentCameraInfo");
-    }
+    public async Task ShowCurrentCameraInfo() => await bundleModule.InvokeVoidAsync("showCurrentCameraInfo");
 
     /// <summary>
     /// Apply updated orbit controls to viewer.
@@ -144,7 +123,9 @@ public sealed partial class Viewer : IDisposable
     public async Task UpdateOrbitControls(OrbitControls orbitControls)
     {
         OrbitControls = orbitControls;
+
         var json = JsonConvert.SerializeObject(OrbitControls, SerializationHelper.GetSerializerSettings());
+
         await bundleModule.InvokeVoidAsync("updateOrbitControls", json);
     }
 
@@ -152,12 +133,15 @@ public sealed partial class Viewer : IDisposable
     public static Task<string> ReceiveSelectedObjectUUID(string containerId, string uuid)
     {
         var guid = string.IsNullOrWhiteSpace(uuid) ? Guid.Empty : Guid.Parse(uuid);
+
         var result = containerId + uuid;
+
         ObjectSelectedStatic?.Invoke(new Object3DStaticArgs
         {
             ContainerId = containerId,
             UUID = guid,
         });
+
         return Task.FromResult(result);
     }
 
@@ -165,11 +149,13 @@ public sealed partial class Viewer : IDisposable
     public static Task ReceiveLoadedObjectUUID(string containerId, string uuid)
     {
         var result = containerId + uuid;
+
         ObjectLoadedStatic?.Invoke(new Object3DStaticArgs
         {
             ContainerId = containerId,
             UUID = new Guid(uuid),
         });
+
         return Task.CompletedTask;
     }
 
@@ -181,10 +167,8 @@ public sealed partial class Viewer : IDisposable
     public async Task RemoveByUuidAsync(Guid uuid)
     {
         var result = await bundleModule.InvokeAsync<bool>("removeByUuid", uuid);
-        if (result)
-        {
-            ChildrenHelper.RemoveObjectByUuid(uuid, Scene.Children);
-        }
+
+        if (result) ChildrenHelper.RemoveObjectByUuid(uuid, Scene.Children);
     }
 
     /// <summary>
@@ -192,10 +176,7 @@ public sealed partial class Viewer : IDisposable
     /// </summary>
     /// <param name="uuid">Unique identifier of object to select</param>
     /// <returns>Task</returns>
-    public async Task SelectByUuidAsync(Guid uuid)
-    {
-        await bundleModule.InvokeVoidAsync("selectByUuid", uuid);
-    }
+    public async Task SelectByUuidAsync(Guid uuid) => await bundleModule.InvokeVoidAsync("selectByUuid", uuid);
 
     /// <summary>
     /// Clears scene.
@@ -204,6 +185,7 @@ public sealed partial class Viewer : IDisposable
     public async Task ClearSceneAsync()
     {
         await bundleModule.InvokeVoidAsync("clearScene");
+
         Scene.Children.Clear();
     }
 
@@ -216,8 +198,11 @@ public sealed partial class Viewer : IDisposable
     {
         settings.Uuid = settings.Uuid ?? Guid.NewGuid();
         settings.Material = settings.Material ?? new MeshStandardMaterial();
+
         var json = JsonConvert.SerializeObject(settings, SerializationHelper.GetSerializerSettings());
+
         await bundleModule.InvokeVoidAsync("import3DModel", json);
+
         return settings.Uuid.Value;
     }
 
@@ -227,10 +212,9 @@ public sealed partial class Viewer : IDisposable
     /// <param name="fileUrl">URL of the 3D model file.</param>
     /// <param name="material"><see cref="MeshStandardMaterial"/>Material that will be applied to all loaded meshes.</param>
     /// <param name="textureUrl">URL of the texture file.</param>
-    /// <param name="Uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is generated.</param>
+    /// <param name="uuid">UUID of the object to be loaded. Nullable. If not specified, the new Guid is generated.</param>
     /// <returns>Guid of the loaded item</returns>
-    public async Task<Guid> Import3DModelFileAsync(string fileUrl, MeshStandardMaterial? material = null,
-        string? textureUrl = null, Guid? Uuid = null)
+    public async Task<Guid> Import3DModelFileAsync(string fileUrl, MeshStandardMaterial? material = null, string? textureUrl = null, Guid? uuid = null)
     {
         var fileExtension = fileUrl.Substring(fileUrl.LastIndexOf('.') + 1);
 
@@ -252,7 +236,7 @@ public sealed partial class Viewer : IDisposable
 
         if (textureUrl is not null) settings.TextureURL = textureUrl;
 
-        if (Uuid is not null) settings.Uuid = Uuid;
+        if (uuid is not null) settings.Uuid = uuid;
 
         return await Import3DModelAsync(settings);
     }
@@ -266,8 +250,11 @@ public sealed partial class Viewer : IDisposable
     {
         settings.Uuid = settings.Uuid ?? Guid.NewGuid();
         settings.Material = settings.Material ?? new SpriteMaterial();
+
         var json = JsonConvert.SerializeObject(settings, SerializationHelper.GetSerializerSettings());
+
         await bundleModule.InvokeVoidAsync("importSprite", json);
+
         return settings.Uuid.Value;
     }
 
@@ -277,27 +264,19 @@ public sealed partial class Viewer : IDisposable
     /// <param name="uuid">Object's uuid</param>
     /// <param name="children">Children collection. Usually it's Scene.Children</param>
     /// <returns>Found object or null</returns>
-    public static Object3D? GetObjectByUuid(Guid uuid, List<Object3D> children)
-    {
-        return ChildrenHelper.GetObjectByUuid(uuid, children);
-    }
+    public static Object3D? GetObjectByUuid(Guid uuid, List<Object3D> children) => ChildrenHelper.GetObjectByUuid(uuid, children);
 
     private async Task OnModuleLoaded()
     {
         var handler = JsModuleLoaded;
 
-        if (handler == null)
-        {
-            return;
-        }
+        if (handler == null) return;
 
         var invocationList = handler.GetInvocationList();
         var handlerTasks = new Task[invocationList.Length];
 
         for (var i = 0; i < invocationList.Length; i++)
-        {
             handlerTasks[i] = ((LoadedModuleEventHandler)invocationList[i])();
-        }
 
         await Task.WhenAll(handlerTasks);
     }
@@ -306,6 +285,7 @@ public sealed partial class Viewer : IDisposable
     private void AddDefaultScene()
     {
         Scene.Add(new AmbientLight());
+
         Scene.Add(new PointLight
         {
             Position = new Vector3
@@ -315,45 +295,39 @@ public sealed partial class Viewer : IDisposable
                 Z = 0
             }
         });
+
         Scene.Add(new Mesh());
     }
 
     private void OnObjectSelectedStatic(Object3DStaticArgs e)
     {
         if (ViewerSettings.ContainerId == e.ContainerId)
-        {
             ObjectSelected?.Invoke(new Object3DArgs { UUID = e.UUID });
-        }
     }
 
     private void OnObjectLoadedStatic(Object3DStaticArgs e)
     {
         if (ViewerSettings.ContainerId == e.ContainerId)
-        {
             ObjectLoadedPrivate?.Invoke(new Object3DArgs { UUID = e.UUID });
-        }
     }
 
     //todo: move to children helper
     private List<Object3D> ParseChildren(JToken? children)
     {
         var result = new List<Object3D>();
-        if (children?.Type != JTokenType.Array)
-        {
-            return result;
-        }
+
+        if (children?.Type != JTokenType.Array) return result;
 
         foreach (var child in children)
         {
             var c = child as JObject;
-            if (c == null)
-            {
-                continue;
-            }
+
+            if (c == null) continue;
 
             var type = c.Property("type")?.Value.ToString();
             var name = c.Property("name")?.Value.ToString() ?? string.Empty;
             var uuid = c.Property("uuid")?.Value.ToString() ?? string.Empty;
+
             if (type == "Mesh")
             {
                 var mesh = new Mesh
@@ -383,6 +357,7 @@ public sealed partial class Viewer : IDisposable
     private async Task OnObjectLoadedPrivate(Object3DArgs e)
     {
         var json = await bundleModule.InvokeAsync<string>("getSceneItemByGuid", e.UUID);
+
         if (json.Contains("\"type\":\"Group\""))
         {
             var jobject = JObject.Parse(json);
@@ -390,20 +365,24 @@ public sealed partial class Viewer : IDisposable
             var uuidstr = jobject.Property("uuid")?.Value.ToString() ?? string.Empty;
             var children = jobject.Property("children")?.Value;
             var childrenResult = ParseChildren(children);
+
             var group = new Group
             {
                 Name = name,
                 Uuid = Guid.Parse(uuidstr),
             };
+
             group.Children.AddRange(childrenResult);
 
             Scene.Children.Add(group);
+
             ObjectLoaded?.Invoke(new Object3DArgs { UUID = e.UUID });
         }
 
         if (json.Contains("\"type\":\"Mesh\""))
         {
             var mesh = JsonConvert.DeserializeObject<Mesh>(json);
+
             if (mesh != null)
             {
                 Scene.Children.Add(mesh);
@@ -414,6 +393,7 @@ public sealed partial class Viewer : IDisposable
         if (json.Contains("\"type\":\"Sprite\""))
         {
             var sprite = JsonConvert.DeserializeObject<Sprite>(json);
+
             if (sprite != null)
             {
                 Scene.Children.Add(sprite);

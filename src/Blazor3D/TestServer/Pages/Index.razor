@@ -24,7 +24,7 @@
     private Viewer View3D1 = null!;
     private Guid objGuid;
 
-    private ViewerSettings settings = new ViewerSettings
+    private readonly ViewerSettings settings = new()
     {
         ContainerId = "rsid",
         CanSelect = true,
@@ -35,7 +35,7 @@
         }
     };
 
-    private Scene scene = new Scene();
+    private readonly Scene scene = new();
     //private Camera camera = new PerspectiveCamera
     //    {
     //        Position = new Vector3(3, 3, 3),
@@ -48,7 +48,7 @@
     private Guid loadedObjectGuid = Guid.NewGuid();
     private Guid? selectObjectGuid = null;
 
-    private Camera camera = new OrthographicCamera
+    private readonly Camera camera = new OrthographicCamera
     {
         Left = -5,
         Right = 5,

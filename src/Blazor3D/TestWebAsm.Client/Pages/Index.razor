@@ -18,12 +18,12 @@
     private Viewer View3D1 = null!;
     private Guid objGuid;
 
-    private ViewerSettings settings = new ViewerSettings
+    private readonly ViewerSettings settings = new()
     {
         ContainerId = "rsid",
     };
 
-    private Scene scene = new Scene();
+    private readonly Scene scene = new();
 
     protected override Task OnInitializedAsync()
     {

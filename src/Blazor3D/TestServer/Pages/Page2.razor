@@ -19,16 +19,16 @@
     private Viewer View3D1 = null!;
     private Guid objGuid;
 
-    private ViewerSettings settings = new ViewerSettings
+    private readonly ViewerSettings settings = new()
     {
         ContainerId = "rsid",
         CanSelect = true,
         CanSelectHelpers = false
     };
 
-    private Scene scene = new Scene();
+    private readonly Scene scene = new();
 
-    private Camera camera = new PerspectiveCamera
+    private readonly Camera camera = new PerspectiveCamera
     {
         Position = new Vector3(3, 3, 3),
         LookAt = new Vector3(0, 0.5f, 0)
@@ -69,7 +69,7 @@
 
     private async Task OnModuleLoaded()
     {
-        await View3D1.Import3DModelFileAsync("Assets/Samba%20Dancing.fbx", Uuid: loadedObjectGuid);
+        await View3D1.Import3DModelFileAsync("Assets/Samba%20Dancing.fbx", uuid: loadedObjectGuid);
 
         await View3D1.SetCameraPositionAsync(new Vector3(0, 100, 250), new Vector3(0, 50, 0));
     }
@@ -77,13 +77,16 @@
     private void AddLights()
     {
         scene.Add(new AmbientLight());
+
         var plight = new PointLight
         {
             //Color = "red",
             Decay = 2,
             Position = new Vector3(1, 5, 0)
         };
+        
         scene.Add(plight);
+        
         scene.Add(new PointLightHelper(plight, 0.5));
     }
 
@@ -266,7 +269,7 @@
         loadedObjectGuid = Guid.NewGuid(); // alway do this.
 
         await View3D1.Import3DModelFileAsync("https://threejs.org/examples/models/obj/male02/male02.obj",
-            textureUrl: "https://threejs.org/examples/textures/uv_grid_opengl.jpg", Uuid: loadedObjectGuid);
+            textureUrl: "https://threejs.org/examples/textures/uv_grid_opengl.jpg", uuid: loadedObjectGuid);
 
         // await View3D1.Import3DModelAsync(new ImportSettings()
         // {
@@ -322,10 +325,7 @@
         //await View3D1.SetCameraPositionAsync(new Vector3(0, 3, 3), new Vector3(0, 1, 0));
     }
 
-    private async Task OnClearAllClick()
-    {
-        await View3D1.ClearSceneAsync();
-    }
+    private async Task OnClearAllClick() => await View3D1.ClearSceneAsync();
 
     private async Task OnClearLast()
     {
@@ -336,10 +336,7 @@
         }
     }
 
-    private async Task OnShowCameraInfo()
-    {
-        await View3D1.ShowCurrentCameraInfo();
-    }
+    private async Task OnShowCameraInfo() => await View3D1.ShowCurrentCameraInfo();
 
     public void Dispose()
     {

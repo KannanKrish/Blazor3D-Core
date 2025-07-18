@@ -13,7 +13,7 @@
     private Viewer View3D1 = null!;
     private Guid objGuid;
 
-    private ViewerSettings settings = new ViewerSettings
+    private readonly ViewerSettings settings = new()
     {
         ContainerId = "rsid",
         CanSelect = true,
@@ -26,12 +26,12 @@
         }
     };
 
-    private Scene scene = new Scene
+    private readonly Scene scene = new()
     {
         BackGroundColor = string.Empty,
     };
 
-    private Camera camera = new PerspectiveCamera
+    private readonly Camera camera = new PerspectiveCamera
     {
         Position = new Vector3(0, 0, 10),
     };
